@@ -6,7 +6,7 @@
 
 #include <stdio.h>    
 #include <stdlib.h>    
-#include <asm/user.h>    
+#include <asm/user.h> 
 #include <asm/ptrace.h>    
 #include <sys/ptrace.h>    
 #include <sys/wait.h>    
@@ -308,10 +308,10 @@ void* GetModuleBaseAddr(pid_t pid, const char* ModuleName)
 {
     FILE *fp = NULL;    
     long ModuleBaseAddr = 0; 	
-	char *ModulePath, *MapFileLineItem;
+	char *MapFileLineItem;
     char szFileName[50] = {0};    
     char szMapFileLine[1024] = {0};
-	char szProcessInfo[1024] = {0};
+	//char szProcessInfo[1024] = {0};
     
 	// 读取"/proc/pid/maps"可以获得该进程加载的模块
     if (pid < 0) {    

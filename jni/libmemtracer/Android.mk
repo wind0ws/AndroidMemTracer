@@ -4,6 +4,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := memtracer  
 LOCAL_SRC_FILES := hooker.c memtracer.c
 
+LOCAL_CFLAGS += -std=c99 -g -Os -Wall 
+
 LOCAL_ARM_MODE := arm
   
 LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog  

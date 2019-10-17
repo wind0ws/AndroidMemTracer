@@ -12,7 +12,7 @@ To find out where the leaked memory comes from, I made this tool. it will trace 
     Ihis tool uses ptrace inject technology to replace the malloc, calloc, realloc and free functions by the replaced one, in which we trace all the memory allocate and free actions. One commander tool is used to control the time of start and stop collection of memory usage. 
     The general procedure of using this tool will be:
     1. start up the application you want to tested, and find out the PID of the application (by top or ps command);
-    2. Go to memtracer path, put one copy of your target dynamic library file to the root directory of memtracer (/data/local/memtracer) 
+    2. Go to memtracer path, put one copy of your target dynamic library file to the root directory of memtracer (/data/local/memtracer/) 
     3. start up memtrace with target PID and target library name (./memtrace -p PID -t libxxxx.so)
     4. According to the hint, press commands: s[start], e[end], d[dump], c[simple mode switch], b[backtrace switch], r[reset]
     4. run your test cases;
@@ -23,5 +23,10 @@ To find out where the leaked memory comes from, I made this tool. it will trace 
     
     
 Known Issues:
-    1. Each time the memtracer just started, the first command can not got the feedback from target process, still debuging
+    1. Each time the memtracer just started, the first command can not got the feedback from target process, still debuging  
     2. Originally, the parameter pass from injector to libmemtracer used temp file, but I found for some application, access to the temp file may be denied. will change the parameter pass method to avoid permission issue.
+	
+Note:
+	1. If you want build it by yourself, just double click build.bat to build it(if you are in windows).
+	2. You should edit build.bat first, because the NDK path may be not same as mine. 
+	3. This project only support NDK version below r12b(include r12b). you can download old version ndk on https://developer.android.com/ndk/downloads/older_releases

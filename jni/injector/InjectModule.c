@@ -5,7 +5,7 @@
 
 #include <stdio.h>    
 #include <stdlib.h>
-#include <asm/user.h>    
+#include <asm/user.h> 
 #include <asm/ptrace.h>    
 #include <sys/ptrace.h>    
 #include <sys/wait.h>    
@@ -14,6 +14,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <sys/stat.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <dlfcn.h>    
 #include <dirent.h>    
@@ -269,7 +270,7 @@ int start_commander()
 	printf("Memtracer commander started, available commands are: \n"
 		"s[start], e[end], d[dump], c[simple mode switch], q[qrecord mode switch], b[backtrace switch], r[reset]\n");
 
-    int ret;
+    //int ret;
     char sendbuf[256] = {0};
     while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL)
     {

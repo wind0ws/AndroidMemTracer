@@ -5,6 +5,7 @@
 #include <utils/logger.h>
 #include <memtracer.h>
 #include <strings.h>
+#include <string.h>
 
 // Forward declare of internal function
 void dump_content(char * content, int dumptofile, int force);
@@ -151,12 +152,12 @@ void interpret_mmaps()
     {
         while (fgets(line, sizeof(line), fp)) 
         {    
-            char * fmins = index(line, '-');
+            char * fmins = strchr(line, '-');
             strncpy(buff, line, fmins - line);
             buff[fmins - line] = 0;
             unsigned int startaddr = strtoul(buff, NULL, 16);
 
-            char * fspace = index(line, ' ');
+            char * fspace = strchr(line, ' ');
             strncpy(buff, fmins + 1, fspace - fmins - 1);
             buff[fspace - fmins - 1] = 0;
             unsigned int endaddr = strtoul(buff, NULL, 16);

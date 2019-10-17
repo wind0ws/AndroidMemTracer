@@ -25,7 +25,6 @@
 
 #define LOGD(LOG_TAG, ...) NULL
 
-
 #define LOGI(LOG_TAG, ...) NULL
 
 #define LOGW(LOG_TAG, ...) NULL
